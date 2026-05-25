@@ -1,0 +1,29 @@
+[
+  {
+    "id": "61803bdf-45af-41e9-9941-392c6cd431ac",
+    "name": "Hyundai Tucson",
+    "price": "550",
+    "description": "SUV moderne et spacieux",
+    "image": "https://images.unsplash.com/photo-1519641471654-76ce0107ad1b?w=400",
+    "category": "suv",
+    "whatsapp": "212600000000"
+  },
+  {
+    "id": "8c70eae3-b755-479a-b552-50cde6eae0ef",
+    "name": "Range Rover Vogue",
+    "price": "1800",
+    "description": "L'ultime expression du luxe",
+    "image": "https://images.unsplash.com/photo-1606664515524-ed2f786a0bd6?w=400",
+    "category": "luxe",
+    "whatsapp": "212600000000"
+  },
+  {
+    "id": "493f26e9-e45c-4d13-9192-2c4294e44151",
+    "name": "range",
+    "price": "1200",
+    "category": "suv",
+    "description": "top",
+    "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR71GljBFRtxcFo3d8cvLqMyQCE18dZ_Xm1hQ&s",
+    "whatsapp": "212630381813"
+  }
+]
