@@ -201,7 +201,7 @@ body{font-family:'Montserrat',sans-serif;background:var(--black);color:var(--whi
 <div class="toast" id="toast"></div>
 
 <script>
-const API = 'http://localhost:3000/api';
+const API = 'https://car-rental11-production.up.railway.app/api';
 let token = localStorage.getItem('autolux_token');
 let cars = [];
 let editingId = null;
@@ -338,7 +338,7 @@ headers: {'Authorization': `Bearer ${token}`},
 body: formData
 });
 const data = await res.json();
-document.getElementById('carImage').value = `http://localhost:3000${data.url}`;
+const API = 'https://car-rental11-production.up.railway.app/api';
 previewImage();
 showToast('✅ Image uploadée!');
 }
