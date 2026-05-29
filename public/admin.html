@@ -255,13 +255,31 @@ cars = await res.json();
 updateStats();
 renderTable();
 renderRecent();
+}function updateStats() {
+  document.getElementById('totalCars').textContent = cars.length;
+  document.getElementById('luxeCars').textContent = cars.filter(c=>c.category==='luxe').length;
+  document.getElementById('suvCars').textContent = cars.filter(c=>c.category==='suv').length;
+  document.getElementById('ecoCars').textContent = cars.filter(c=>c.category==='economique').length;
+  loadVisitors(); // ← هذا موجود
 }
 
-function updateStats() {
-document.getElementById('totalCars').textContent = cars.length;
-document.getElementById('luxeCars').textContent = cars.filter(c=>c.category==='luxe').length;
-document.getElementById('suvCars').textContent = cars.filter(c=>c.category==='suv').length;
-document.getElementById('ecoCars').textContent = cars.filter(c=>c.category==='economique').length;
+function loadVisitors() {
+  fetch(`${API}/stats`, {
+    headers: {'Authorization': `Bearer ${token}`}
+  })
+  .then(r => r.json())
+  .then(v => {
+    document.getElementById('totalVisitors').textContent = v.total || 0;
+    document.getElementById('todayVisitors').textContent = v.today || 0;
+  })
+  .catch(() => {
+    document.getElementById('totalVisitors').textContent = '0';
+    document.getElementById('todayVisitors').textContent = '0';
+  });
+}
+
+setInterval(loadVisitors, 30000);
+
 // Visitors
 fetch(`${API}/visitors`)
 .then(r=>r.json())
