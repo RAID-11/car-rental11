@@ -9,82 +9,81 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
-:root{--black:#0a0a0a;--dark:#111;--card:#1a1a1a;--border:#2a2a2a;--lime:#a3e635;--gold:#d4a843;--white:#fff;--gray:#888}
+:root{--black:#0a0a0a;--dark:#111;--card:#1a1a1a;--border:#2a2a2a;--blue:#3b82f6;--blue-hover:#2563eb;--gold:#d4a843;--white:#fff;--gray:#888}
 html{scroll-behavior:smooth}
 body{font-family:'Montserrat',sans-serif;background:var(--black);color:var(--white)}
 .navbar{position:fixed;top:0;width:100%;background:rgba(10,10,10,0.97);backdrop-filter:blur(20px);border-bottom:1px solid var(--border);z-index:1000;padding:1rem 0}
 .nav-container{max-width:1200px;margin:0 auto;padding:0 2rem;display:flex;align-items:center;justify-content:space-between}
-.logo{font-size:1.8rem;font-weight:900;letter-spacing:2px}.logo span{color:var(--lime)}
+.logo{font-size:1.8rem;font-weight:900;letter-spacing:2px}.logo span{color:var(--blue)}
 .nav-links{display:flex;list-style:none;gap:2rem}
 .nav-links a{color:var(--gray);text-decoration:none;font-size:.9rem;font-weight:500;transition:color .3s}
-.nav-links a:hover{color:var(--lime)}
-.nav-btn{background:var(--lime);color:var(--black);padding:.6rem 1.5rem;border-radius:50px;font-weight:700;font-size:.9rem;text-decoration:none;transition:all .3s}
-.nav-btn:hover{background:#84cc16;transform:scale(1.05)}
-.hero{min-height:100vh;display:flex;align-items:center;background:linear-gradient(135deg,#0a0a0a,#111827,#0a0a0a);position:relative;padding:8rem 2rem 4rem}
-.hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 20% 50%,rgba(163,230,53,0.05),transparent 60%)}
+.nav-links a:hover{color:var(--blue)}
+.nav-btn{background:var(--blue);color:#fff;padding:.6rem 1.5rem;border-radius:50px;font-weight:700;font-size:.9rem;text-decoration:none;transition:all .3s}
+.nav-btn:hover{background:var(--blue-hover);transform:scale(1.05)}
+.hamburger{display:none;font-size:1.5rem;cursor:pointer;color:var(--white)}
+.hero{min-height:100vh;display:flex;align-items:center;background:linear-gradient(135deg,#0a0a0a,#0f1729,#0a0a0a);position:relative;padding:8rem 2rem 4rem}
+.hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 20% 50%,rgba(59,130,246,0.07),transparent 60%)}
 .hero-content{max-width:1200px;margin:0 auto;position:relative;z-index:1}
-.hero-tag{color:var(--lime);font-size:.9rem;font-weight:600;letter-spacing:3px;text-transform:uppercase;margin-bottom:1.5rem}
+.hero-tag{color:var(--blue);font-size:.9rem;font-weight:600;letter-spacing:3px;text-transform:uppercase;margin-bottom:1.5rem}
 .hero h1{font-size:clamp(3rem,8vw,6rem);font-weight:900;line-height:1.1;margin-bottom:1.5rem}
-.hero h1 span{color:var(--lime)}
+.hero h1 span{color:var(--blue)}
 .hero-sub{font-size:1.1rem;color:var(--gray);max-width:600px;line-height:1.8;margin-bottom:2.5rem}
 .hero-btns{display:flex;gap:1rem;flex-wrap:wrap;margin-bottom:4rem}
-.btn-primary{background:var(--lime);color:var(--black);padding:1rem 2rem;border-radius:50px;font-weight:700;text-decoration:none;font-size:.95rem;transition:all .3s;display:inline-flex;align-items:center;gap:.5rem;border:none;cursor:pointer}
-.btn-primary:hover{background:#84cc16;transform:translateY(-2px);box-shadow:0 10px 30px rgba(163,230,53,0.3)}
-.btn-wa{background:#25d366;color:#fff;padding:1rem 2rem;border-radius:50px;font-weight:700;text-decoration:none;font-size:.95rem;transition:all .3s;display:inline-flex;align-items:center;gap:.5rem}
+.btn-primary{background:var(--blue);color:#fff;padding:1rem 2rem;border-radius:50px;font-weight:700;text-decoration:none;font-size:.95rem;transition:all .3s;display:inline-flex;align-items:center;justify-content:center;gap:.5rem;border:none;cursor:pointer}
+.btn-primary:hover{background:var(--blue-hover);transform:translateY(-2px);box-shadow:0 10px 30px rgba(59,130,246,0.3)}
+.btn-wa{background:#25d366;color:#fff;padding:1rem 2rem;border-radius:50px;font-weight:700;text-decoration:none;font-size:.95rem;transition:all .3s;display:inline-flex;align-items:center;justify-content:center;gap:.5rem}
 .btn-wa:hover{background:#128c7e;transform:translateY(-2px)}
 .hero-stats{display:flex;gap:3rem;flex-wrap:wrap}
-.stat h3{font-size:2.5rem;font-weight:900;color:var(--lime)}.stat p{color:var(--gray);font-size:.85rem}
+.stat h3{font-size:2.5rem;font-weight:900;color:var(--blue)}.stat p{color:var(--gray);font-size:.85rem}
 .container{max-width:1200px;margin:0 auto;padding:0 2rem}
 .section-header{text-align:center;margin-bottom:4rem}
-.section-tag{color:var(--lime);font-size:.85rem;font-weight:600;letter-spacing:3px;text-transform:uppercase;margin-bottom:1rem;display:block}
+.section-tag{color:var(--blue);font-size:.85rem;font-weight:600;letter-spacing:3px;text-transform:uppercase;margin-bottom:1rem;display:block}
 .section-header h2{font-size:clamp(2rem,5vw,3rem);font-weight:900;margin-bottom:1rem}
-.section-header h2 span{color:var(--lime)}
+.section-header h2 span{color:var(--blue)}
 .section-sub{color:var(--gray);font-size:1rem;max-width:500px;margin:0 auto;line-height:1.7}
 .flotte{padding:6rem 0;background:var(--dark)}
 .filters{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;margin-bottom:3rem}
 .filter-btn{background:var(--card);color:var(--gray);border:1px solid var(--border);padding:.6rem 1.5rem;border-radius:50px;cursor:pointer;font-family:'Montserrat',sans-serif;font-size:.85rem;font-weight:600;transition:all .3s}
-.filter-btn.active,.filter-btn:hover{background:var(--lime);color:var(--black);border-color:var(--lime)}
+.filter-btn.active,.filter-btn:hover{background:var(--blue);color:#fff;border-color:var(--blue)}
 .search-bar{max-width:400px;margin:0 auto 2rem;position:relative}
 .search-bar input{width:100%;background:var(--card);border:1px solid var(--border);color:var(--white);padding:.9rem 1rem .9rem 3rem;border-radius:50px;font-family:'Montserrat',sans-serif;font-size:.9rem;outline:none;transition:border .3s}
-.search-bar input:focus{border-color:var(--lime)}
+.search-bar input:focus{border-color:var(--blue)}
 .search-bar i{position:absolute;left:1rem;top:50%;transform:translateY(-50%);color:var(--gray)}
 .cars-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:2rem}
 .car-card{background:var(--card);border:1px solid var(--border);border-radius:16px;overflow:hidden;transition:all .3s;opacity:0;transform:translateY(20px)}
 .car-card.visible{opacity:1;transform:translateY(0)}
-.car-card:hover{transform:translateY(-8px);border-color:var(--lime);box-shadow:0 20px 50px rgba(163,230,53,0.1)}
-.car-badge{position:absolute;top:1rem;right:1rem;background:var(--lime);color:var(--black);font-size:.75rem;font-weight:700;padding:.3rem .8rem;border-radius:50px}
+.car-card:hover{transform:translateY(-8px);border-color:var(--blue);box-shadow:0 20px 50px rgba(59,130,246,0.1)}
 .car-img-wrap{position:relative;height:200px;overflow:hidden}
 .car-img-wrap img{width:100%;height:100%;object-fit:cover;transition:transform .3s}
 .car-card:hover .car-img-wrap img{transform:scale(1.05)}
 .car-category-badge{position:absolute;bottom:.8rem;left:.8rem;font-size:.75rem;font-weight:700;padding:.3rem .8rem;border-radius:50px;text-transform:uppercase}
-.cat-economique{background:rgba(163,230,53,0.2);color:var(--lime)}
+.cat-economique{background:rgba(59,130,246,0.2);color:var(--blue)}
 .cat-suv{background:rgba(99,102,241,0.2);color:#818cf8}
 .cat-luxe{background:rgba(212,168,67,0.2);color:var(--gold)}
 .car-info{padding:1.5rem}
 .car-info h3{font-size:1.2rem;font-weight:700;margin-bottom:.5rem}
 .car-desc{color:var(--gray);font-size:.88rem;line-height:1.6;margin-bottom:1rem}
 .car-price{margin-bottom:1.2rem}
-.price{font-size:2rem;font-weight:900;color:var(--lime)}
+.price{font-size:2rem;font-weight:900;color:var(--blue)}
 .per{color:var(--gray);font-size:.9rem}
 .btn-reserve{display:flex;align-items:center;justify-content:center;gap:.5rem;background:#25d366;color:#fff;padding:.9rem;border-radius:10px;font-weight:700;font-size:.9rem;text-decoration:none;transition:all .3s;border:none;cursor:pointer;width:100%}
 .btn-reserve:hover{background:#128c7e;transform:scale(1.02)}
 .loading{text-align:center;padding:4rem;color:var(--gray)}
-.loading i{font-size:3rem;color:var(--lime);animation:spin 1s linear infinite}
+.loading i{font-size:3rem;color:var(--blue);animation:spin 1s linear infinite}
 @keyframes spin{to{transform:rotate(360deg)}}
 .empty{text-align:center;padding:4rem;color:var(--gray)}
-.empty i{font-size:4rem;margin-bottom:1rem;display:block}
 .pourquoi{padding:6rem 0;background:var(--black)}
 .avantages-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:2rem}
 .avantage-card{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:2rem;text-align:center;transition:all .3s}
-.avantage-card:hover{border-color:var(--lime);transform:translateY(-5px)}
-.av-icon{width:70px;height:70px;background:rgba(163,230,53,0.1);border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 1.5rem;font-size:1.8rem;color:var(--lime)}
+.avantage-card:hover{border-color:var(--blue);transform:translateY(-5px)}
+.av-icon{width:70px;height:70px;background:rgba(59,130,246,0.1);border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 1.5rem;font-size:1.8rem;color:var(--blue)}
 .avantage-card h3{font-size:1.1rem;font-weight:700;margin-bottom:.8rem}
 .avantage-card p{color:var(--gray);font-size:.9rem;line-height:1.7}
 .contact{padding:6rem 0;background:var(--dark)}
 .contact-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:2rem}
 .contact-card{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:2.5rem;text-align:center;transition:all .3s}
-.contact-card:hover{border-color:var(--lime)}
-.contact-card>i{font-size:3rem;color:var(--lime);margin-bottom:1rem;display:block}
+.contact-card:hover{border-color:var(--blue)}
+.contact-card>i{font-size:3rem;color:var(--blue);margin-bottom:1rem;display:block}
 .contact-card h3{font-size:1.2rem;font-weight:700;margin-bottom:.5rem}
 .contact-card p{color:var(--gray);margin-bottom:1.5rem}
 .footer{background:#050505;border-top:1px solid var(--border);padding:4rem 0 2rem}
@@ -92,191 +91,254 @@ body{font-family:'Montserrat',sans-serif;background:var(--black);color:var(--whi
 .footer-brand p{color:var(--gray);font-size:.9rem;line-height:1.7;margin:1rem 0}
 .social-links{display:flex;gap:1rem;margin-top:1rem}
 .social-links a{width:40px;height:40px;background:var(--card);border-radius:50%;display:flex;align-items:center;justify-content:center;color:var(--gray);text-decoration:none;transition:all .3s}
-.social-links a:hover{background:var(--lime);color:var(--black)}
+.social-links a:hover{background:var(--blue);color:#fff}
 .footer-links h4{font-size:1rem;font-weight:700;margin-bottom:1.5rem}
 .footer-links ul{list-style:none}
 .footer-links ul li{margin-bottom:.8rem}
 .footer-links ul li a{color:var(--gray);text-decoration:none;font-size:.9rem;transition:color .3s}
-.footer-links ul li a:hover{color:var(--lime)}
+.footer-links ul li a:hover{color:var(--blue)}
 .footer-bottom{border-top:1px solid var(--border);padding-top:2rem;text-align:center;color:var(--gray);font-size:.85rem}
 .floating-wa{position:fixed;bottom:2rem;right:2rem;width:60px;height:60px;background:#25d366;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.8rem;color:#fff;text-decoration:none;z-index:999;box-shadow:0 5px 20px rgba(37,211,102,0.4);animation:pulse 2s infinite}
 @keyframes pulse{0%,100%{box-shadow:0 5px 20px rgba(37,211,102,0.4)}50%{box-shadow:0 5px 40px rgba(37,211,102,0.7)}}
-@media(max-width:768px){.nav-links{display:none}.footer-grid{grid-template-columns:1fr 1fr}.hero-btns{flex-direction:column}.hero-stats{gap:1.5rem}}
-@media(max-width:480px){.footer-grid{grid-template-columns:1fr}.cars-grid{grid-template-columns:1fr}}
+@media(max-width:768px){
+  .nav-links{display:none}
+  .hamburger{display:block}
+  .hero-btns{flex-direction:column;align-items:center}
+  .btn-primary,.btn-wa{width:100%;max-width:300px;justify-content:center}
+  .hero-stats{gap:1.5rem}
+  .footer-grid{grid-template-columns:1fr 1fr}
+  .cars-grid{grid-template-columns:1fr}
+}
+@media(max-width:480px){
+  .footer-grid{grid-template-columns:1fr}
+}
 </style>
 </head>
 <body>
+
 <nav class="navbar">
-<div class="nav-container">
-<div class="logo">AUTO<span>LUX</span></div>
-<ul class="nav-links">
-<li><a href="#accueil">Accueil</a></li>
-<li><a href="#flotte">Notre Flotte</a></li>
-<li><a href="#pourquoi">Pourquoi Nous</a></li>
-<li><a href="#contact">Contact</a></li>
-</ul>
-<a href="https://wa.me/212600000000" class="nav-btn"><i class="fab fa-whatsapp"></i> Réserver</a>
-</div>
+  <div class="nav-container">
+    <div class="logo">AUTO<span>LUX</span></div>
+    <ul class="nav-links">
+      <li><a href="#accueil">Accueil</a></li>
+      <li><a href="#flotte">Notre Flotte</a></li>
+      <li><a href="#pourquoi">Pourquoi Nous</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <a href="https://wa.me/212600000000" class="nav-btn"><i class="fab fa-whatsapp"></i> Réserver</a>
+    <div class="hamburger"><i class="fas fa-bars"></i></div>
+  </div>
 </nav>
 
 <section class="hero" id="accueil">
-<div class="hero-content">
-<p class="hero-tag">🇲🇦 Location Premium au Maroc</p>
-<h1>Conduisez<br><span>l'Excellence.</span><br>Vivez le Luxe.</h1>
-<p class="hero-sub">Des véhicules économiques aux plus grandes berlines de luxe — livrés à votre porte ou à l'aéroport, 24h/24.</p>
-<div class="hero-btns">
-<a href="#flotte" class="btn-primary"><i class="fas fa-car"></i> Voir Notre Flotte</a>
-<a href="https://wa.me/212600000000" class="btn-wa"><i class="fab fa-whatsapp"></i> Réserver Maintenant</a>
-</div>
-<div class="hero-stats">
-<div class="stat"><h3>500+</h3><p>Clients Satisfaits</p></div>
-<div class="stat"><h3>50+</h3><p>Véhicules Disponibles</p></div>
-<div class="stat"><h3>24/7</h3><p>Assistance</p></div>
-</div>
-</div>
+  <div class="hero-content">
+    <p class="hero-tag">🇲🇦 Location Premium au Maroc</p>
+    <h1>Conduisez<br><span>l'Excellence.</span><br>Vivez le Luxe.</h1>
+    <p class="hero-sub">Des véhicules économiques aux plus grandes berlines de luxe — livrés à votre porte ou à l'aéroport, 24h/24.</p>
+    <div class="hero-btns">
+      <a href="#flotte" class="btn-primary"><i class="fas fa-car"></i> Voir Notre Flotte</a>
+      <a href="https://wa.me/212600000000" class="btn-wa"><i class="fab fa-whatsapp"></i> Réserver Maintenant</a>
+    </div>
+    <div class="hero-stats">
+      <div class="stat"><h3>500+</h3><p>Clients Satisfaits</p></div>
+      <div class="stat"><h3>50+</h3><p>Véhicules Disponibles</p></div>
+      <div class="stat"><h3>24/7</h3><p>Assistance</p></div>
+    </div>
+  </div>
 </section>
 
 <section class="flotte" id="flotte">
-<div class="container">
-<div class="section-header">
-<span class="section-tag">Notre Sélection</span>
-<h2>Notre <span>Flotte Premium</span></h2>
-<p class="section-sub">Des véhicules parfaitement entretenus pour chaque besoin</p>
-</div>
-<div class="search-bar">
-<i class="fas fa-search"></i>
-<input type="text" id="searchInput" placeholder="Rechercher une voiture...">
-</div>
-<div class="filters">
-<button class="filter-btn active" data-filter="all">Tous</button>
-<button class="filter-btn" data-filter="economique">Économique</button>
-<button class="filter-btn" data-filter="suv">SUV</button>
-<button class="filter-btn" data-filter="luxe">Luxe</button>
-</div>
-<div id="carsGrid" class="cars-grid">
-<div class="loading"><i class="fas fa-spinner"></i><p style="margin-top:1rem">Chargement...</p></div>
-</div>
-</div>
+  <div class="container">
+    <div class="section-header">
+      <span class="section-tag">Notre Sélection</span>
+      <h2>Notre <span>Flotte Premium</span></h2>
+      <p class="section-sub">Des véhicules parfaitement entretenus pour chaque besoin</p>
+    </div>
+    <div class="search-bar">
+      <i class="fas fa-search"></i>
+      <input type="text" id="searchInput" placeholder="Rechercher une voiture...">
+    </div>
+    <div class="filters">
+      <button class="filter-btn active" data-filter="all">Tous</button>
+      <button class="filter-btn" data-filter="economique">Économique</button>
+      <button class="filter-btn" data-filter="suv">SUV</button>
+      <button class="filter-btn" data-filter="luxe">Luxe</button>
+    </div>
+    <div id="carsGrid" class="cars-grid">
+      <div class="loading"><i class="fas fa-spinner"></i><p style="margin-top:1rem">Chargement...</p></div>
+    </div>
+  </div>
 </section>
 
 <section class="pourquoi" id="pourquoi">
-<div class="container">
-<div class="section-header">
-<span class="section-tag">Nos Avantages</span>
-<h2>Pourquoi Nous <span>Choisir?</span></h2>
-</div>
-<div class="avantages-grid">
-<div class="avantage-card"><div class="av-icon"><i class="fas fa-clock"></i></div><h3>Disponible 24h/24</h3><p>Notre équipe est disponible à toute heure pour répondre à vos besoins.</p></div>
-<div class="avantage-card"><div class="av-icon"><i class="fas fa-plane-arrival"></i></div><h3>Livraison Aéroport</h3><p>Livraison et récupération gratuites à l'aéroport.</p></div>
-<div class="avantage-card"><div class="av-icon"><i class="fas fa-shield-alt"></i></div><h3>Assurance Incluse</h3><p>Tous nos véhicules sont entièrement assurés.</p></div>
-<div class="avantage-card"><div class="av-icon"><i class="fas fa-star"></i></div><h3>Véhicules Premium</h3><p>Flotte régulièrement renouvelée et parfaitement entretenue.</p></div>
-<div class="avantage-card"><div class="av-icon"><i class="fas fa-map-marker-alt"></i></div><h3>Livraison Partout</h3><p>Nous livrons votre véhicule partout au Maroc.</p></div>
-<div class="avantage-card"><div class="av-icon"><i class="fas fa-hand-holding-usd"></i></div><h3>Meilleurs Prix</h3><p>Des tarifs compétitifs et transparents, sans frais cachés.</p></div>
-</div>
-</div>
+  <div class="container">
+    <div class="section-header">
+      <span class="section-tag">Nos Avantages</span>
+      <h2>Pourquoi Nous <span>Choisir?</span></h2>
+    </div>
+    <div class="avantages-grid">
+      <div class="avantage-card"><div class="av-icon"><i class="fas fa-clock"></i></div><h3>Disponible 24h/24</h3><p>Notre équipe est disponible à toute heure pour répondre à vos besoins.</p></div>
+      <div class="avantage-card"><div class="av-icon"><i class="fas fa-plane-arrival"></i></div><h3>Livraison Aéroport</h3><p>Livraison et récupération gratuites à l'aéroport.</p></div>
+      <div class="avantage-card"><div class="av-icon"><i class="fas fa-shield-alt"></i></div><h3>Assurance Incluse</h3><p>Tous nos véhicules sont entièrement assurés.</p></div>
+      <div class="avantage-card"><div class="av-icon"><i class="fas fa-star"></i></div><h3>Véhicules Premium</h3><p>Flotte régulièrement renouvelée et parfaitement entretenue.</p></div>
+      <div class="avantage-card"><div class="av-icon"><i class="fas fa-map-marker-alt"></i></div><h3>Livraison Partout</h3><p>Nous livrons votre véhicule partout au Maroc.</p></div>
+      <div class="avantage-card"><div class="av-icon"><i class="fas fa-hand-holding-usd"></i></div><h3>Meilleurs Prix</h3><p>Des tarifs compétitifs et transparents, sans frais cachés.</p></div>
+    </div>
+  </div>
 </section>
 
 <section class="contact" id="contact">
-<div class="container">
-<div class="section-header">
-<span class="section-tag">Contactez-Nous</span>
-<h2>Prêt à <span>Réserver?</span></h2>
-</div>
-<div class="contact-grid">
-<div class="contact-card"><i class="fab fa-whatsapp"></i><h3>WhatsApp</h3><p>+212 6 00 00 00 00</p><a href="https://wa.me/212600000000" class="btn-primary">Contacter</a></div>
-<div class="contact-card"><i class="fas fa-phone"></i><h3>Téléphone</h3><p>+212 5 00 00 00 00</p><a href="tel:+212500000000" class="btn-primary">Appeler</a></div>
-<div class="contact-card"><i class="fas fa-map-marker-alt"></i><h3>Adresse</h3><p>Casablanca, Maroc</p><a href="#" class="btn-primary">Localiser</a></div>
-</div>
-</div>
+  <div class="container">
+    <div class="section-header">
+      <span class="section-tag">Contactez-Nous</span>
+      <h2>Prêt à <span>Réserver?</span></h2>
+      <p class="section-sub">Contactez-nous via WhatsApp pour une réponse immédiate</p>
+    </div>
+    <div class="contact-grid">
+      <div class="contact-card">
+        <i class="fab fa-whatsapp"></i>
+        <h3>WhatsApp</h3>
+        <p>Disponible 24h/24</p>
+        <a href="https://wa.me/212600000000" class="btn-primary">Contacter</a>
+      </div>
+      <div class="contact-card">
+        <i class="fas fa-phone"></i>
+        <h3>Téléphone</h3>
+        <p>Service Client</p>
+        <a href="tel:+212600000000" class="btn-primary">Appeler</a>
+      </div>
+      <div class="contact-card">
+        <i class="fas fa-map-marker-alt"></i>
+        <h3>Adresse</h3>
+        <p>Casablanca, Maroc</p>
+        <a href="#" class="btn-primary">Localiser</a>
+      </div>
+    </div>
+  </div>
 </section>
 
 <footer class="footer">
-<div class="container">
-<div class="footer-grid">
-<div class="footer-brand">
-<div class="logo">AUTO<span>LUX</span></div>
-<p>Location de voitures premium au Maroc.</p>
-<div class="social-links">
-<a href="#"><i class="fab fa-instagram"></i></a>
-<a href="#"><i class="fab fa-facebook"></i></a>
-<a href="#"><i class="fab fa-whatsapp"></i></a>
-</div>
-</div>
-<div class="footer-links"><h4>Navigation</h4><ul><li><a href="#accueil">Accueil</a></li><li><a href="#flotte">Notre Flotte</a></li><li><a href="#pourquoi">Pourquoi Nous</a></li><li><a href="#contact">Contact</a></li></ul></div>
-<div class="footer-links"><h4>Véhicules</h4><ul><li><a href="#">Économique</a></li><li><a href="#">SUV & Crossover</a></li><li><a href="#">Luxe & Prestige</a></li></ul></div>
-<div class="footer-links"><h4>Contact</h4><ul><li><a href="#">Casablanca, Maroc</a></li><li><a href="#">+212 6 00 00 00 00</a></li><li><a href="#">Disponible 24h/24</a></li></ul></div>
-</div>
-<div class="footer-bottom"><p>© 2025 AutoLux Maroc. Tous droits réservés. | <a href="/admin" style="color:var(--lime)">Admin</a></p></div>
-</div>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="logo">AUTO<span>LUX</span></div>
+        <p>Location de voitures premium au Maroc. Luxe, confort et fiabilité.</p>
+        <div class="social-links">
+          <a href="#"><i class="fab fa-instagram"></i></a>
+          <a href="#"><i class="fab fa-facebook"></i></a>
+          <a href="#"><i class="fab fa-whatsapp"></i></a>
+        </div>
+      </div>
+      <div class="footer-links"><h4>Navigation</h4><ul>
+        <li><a href="#accueil">Accueil</a></li>
+        <li><a href="#flotte">Notre Flotte</a></li>
+        <li><a href="#pourquoi">Pourquoi Nous</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul></div>
+      <div class="footer-links"><h4>Véhicules</h4><ul>
+        <li><a href="#">Économique</a></li>
+        <li><a href="#">SUV & Crossover</a></li>
+        <li><a href="#">Luxe & Prestige</a></li>
+      </ul></div>
+      <div class="footer-links"><h4>Info</h4><ul>
+        <li><a href="#">Casablanca, Maroc</a></li>
+        <li><a href="#">Disponible 24h/24</a></li>
+        <li><a href="#">Livraison Aéroport</a></li>
+      </ul></div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2025 AutoLux Maroc. Tous droits réservés.</p>
+    </div>
+  </div>
 </footer>
 
-<a href="https://wa.me/212600000000" class="floating-wa" target="_blank"><i class="fab fa-whatsapp"></i></a>
+<a href="https://wa.me/212600000000" class="floating-wa" target="_blank">
+  <i class="fab fa-whatsapp"></i>
+</a>
+
 <script>
 const API = 'https://car-rental11-production.up.railway.app/api';
-
 let allCars = [];
 let currentFilter = 'all';
 let searchQuery = '';
 
 async function loadCars() {
-try {
-const res = await fetch(`${API}/cars`);
-allCars = await res.json();
-renderCars();
-} catch {
-document.getElementById('carsGrid').innerHTML = '<div class="empty"><i class="fas fa-exclamation-triangle"></i><p>Erreur de chargement</p></div>';
-}
+  try {
+    const res = await fetch(`${API}/cars`);
+    allCars = await res.json();
+    renderCars();
+  } catch {
+    document.getElementById('carsGrid').innerHTML = '<div class="empty"><i class="fas fa-exclamation-triangle"></i><p>Erreur de chargement</p></div>';
+  }
 }
 
 function renderCars() {
-const grid = document.getElementById('carsGrid');
-let filtered = allCars.filter(c => {
-const matchFilter = currentFilter === 'all' || c.category === currentFilter;
-const matchSearch = c.name.toLowerCase().includes(searchQuery) || c.description.toLowerCase().includes(searchQuery);
-return matchFilter && matchSearch;
-});
-
-if (!filtered.length) {
-grid.innerHTML = '<div class="empty"><i class="fas fa-car"></i><p>Aucun véhicule trouvé</p></div>';
-return;
-}
-
-grid.innerHTML = filtered.map(car => `
-<div class="car-card">
-<div class="car-img-wrap">
-<img src="${car.image || 'https://images.unsplash.com/photo-1541899481282-d53bffe3c35d?w=400'}" alt="${car.name}" onerror="this.src='https://images.unsplash.com/photo-1541899481282-d53bffe3c35d?w=400'">
-<span class="car-category-badge cat-${car.category}">${car.category}</span>
-</div>
-<div class="car-info">
-<h3>${car.name}</h3>
-<p class="car-desc">${car.description}</p>
-<div class="car-price"><span class="price">${car.price} DH</span><span class="per">/jour</span></div>
-<a href="https://wa.me/${car.whatsapp}?text=Bonjour,%20je%20souhaite%20réserver%20${encodeURIComponent(car.name)}%20à%20${car.price}DH/jour.%20Est-il%20disponible?" class="btn-reserve" target="_blank">
-<i class="fab fa-whatsapp"></i> Réserver via WhatsApp
-</a>
-</div>
-</div>
-`).join('');
-
-setTimeout(() => {
-document.querySelectorAll('.car-card').forEach((c,i) => {
-setTimeout(() => c.classList.add('visible'), i * 100);
-});
-}, 50);
+  const grid = document.getElementById('carsGrid');
+  let filtered = allCars.filter(c => {
+    const matchFilter = currentFilter === 'all' || c.category === currentFilter;
+    const matchSearch = c.name.toLowerCase().includes(searchQuery) || c.description.toLowerCase().includes(searchQuery);
+    return matchFilter && matchSearch;
+  });
+  if (!filtered.length) {
+    grid.innerHTML = '<div class="empty"><i class="fas fa-car"></i><p>Aucun véhicule trouvé</p></div>';
+    return;
+  }
+  grid.innerHTML = filtered.map(car => `
+    <div class="car-card">
+      <div class="car-img-wrap">
+        <img src="${car.image}" alt="${car.name}" onerror="this.src='https://images.unsplash.com/photo-1541899481282-d53bffe3c35d?w=400'">
+        <span class="car-category-badge cat-${car.category}">${car.category}</span>
+      </div>
+      <div class="car-info">
+        <h3>${car.name}</h3>
+        <p class="car-desc">${car.description}</p>
+        <div class="car-price"><span class="price">${car.price} DH</span><span class="per">/jour</span></div>
+        <a href="https://wa.me/${car.whatsapp}?text=Bonjour,%20je%20souhaite%20réserver%20${encodeURIComponent(car.name)}%20à%20${car.price}DH/jour.%20Est-il%20disponible?" class="btn-reserve" target="_blank">
+          <i class="fab fa-whatsapp"></i> Réserver via WhatsApp
+        </a>
+      </div>
+    </div>
+  `).join('');
+  setTimeout(() => {
+    document.querySelectorAll('.car-card').forEach((c,i) => {
+      setTimeout(() => c.classList.add('visible'), i * 100);
+    });
+  }, 50);
 }
 
 document.querySelectorAll('.filter-btn').forEach(btn => {
-btn.addEventListener('click', () => {
-document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
-btn.classList.add('active');
-currentFilter = btn.dataset.filter;
-renderCars();
-});
+  btn.addEventListener('click', () => {
+    document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    currentFilter = btn.dataset.filter;
+    renderCars();
+  });
 });
 
 document.getElementById('searchInput').addEventListener('input', e => {
-searchQuery = e.target.value.toLowerCase();
-renderCars();
+  searchQuery = e.target.value.toLowerCase();
+  renderCars();
+});
+
+// Track visitor
+fetch(`${API}/visitors`).catch(()=>{});
+
+// Hamburger menu
+document.querySelector('.hamburger').addEventListener('click', () => {
+  const nav = document.querySelector('.nav-links');
+  if (nav.style.display === 'flex') {
+    nav.style.display = 'none';
+  } else {
+    nav.style.display = 'flex';
+    nav.style.flexDirection = 'column';
+    nav.style.position = 'absolute';
+    nav.style.top = '100%';
+    nav.style.left = '0';
+    nav.style.right = '0';
+    nav.style.background = '#0a0a0a';
+    nav.style.padding = '1rem 2rem';
+    nav.style.borderBottom = '1px solid #2a2a2a';
+  }
 });
 
 loadCars();
