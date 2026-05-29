@@ -321,7 +321,10 @@ document.getElementById('searchInput').addEventListener('input', e => {
 });
 
 // Track visitor
-fetch(`${API}/visitors`).catch(()=>{});
+fetch(`${API}/visitors`)
+  .then(r=>r.json())
+  .catch(()=>{});
+
 
 // Hamburger menu
 document.querySelector('.hamburger').addEventListener('click', () => {
