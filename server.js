@@ -111,19 +111,33 @@ res.json({ url: `/images/${req.file.filename}` });
 
 // Visitors Counter
 app.get('/api/visitors', (req, res) => {
-  const v = JSON.parse(fs.readFileSync(VISITORS_PATH));
-  const today = new Date().toDateString();
-  if (v.date !== today) { v.today = 0; v.date = today; }
-  if (!v.ips) v.ips = [];
-  const ip = req.headers['x-forwarded-for'] || req.socket.remoteAddress;
-  const todayKey = `${ip}_${today}`;
-  if (!v.ips.includes(todayKey)) {
-    v.ips = v.ips.filter(i => i.includes(today));
-    v.ips.push(todayKey);
-    v.total++;
-    v.today++;
-    fs.writeFileSync(VISITORS_PATH, JSON.stringify(v));
+  try {
+    const v = JSON.parse(fs.readFileSync(VISITORS_PATH));
+    const today = new Date().toDateString();
+    if (v.date !== today) { v.today = 0; v.date = today; v.ips = []; }
+    if (!v.ips) v.ips = [];
+    const ip = req.headers['x-forwarded-for'] || req.socket.remoteAddress;
+    const todayKey = `${ip}_${today}`;
+    if (!v.ips.includes(todayKey)) {
+      v.ips = v.ips.filter(i => i.includes(today));
+      v.ips.push(todayKey);
+      v.total++;
+      v.today++;
+      fs.writeFileSync(VISITORS_PATH, JSON.stringify(v));
+    }
+    res.json({ total: v.total, today: v.today });
+  } catch {
+    res.json({ total: 0, today: 0 });
   }
-  res.json(v);
+});
+
+// Stats for Dashboard (protected)
+app.get('/api/stats', auth, (req, res) => {
+  try {
+    const v = JSON.parse(fs.readFileSync(VISITORS_PATH));
+    res.json({ total: v.total || 0, today: v.today || 0 });
+  } catch {
+    res.json({ total: 0, today: 0 });
+  }
 });
 
