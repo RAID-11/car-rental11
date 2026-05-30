@@ -122,27 +122,7 @@ app.post('/api/upload', auth, upload.single('image'), (req, res) => {
   res.json({ url: `/images/${req.file.filename}` });
 });
 
-// VISITORS
-app.get('/api/visitors', (req, res) => {
-  try {
-    const v = JSON.parse(fs.readFileSync(VISITORS_PATH));
-    const today = new Date().toDateString();
-    if (v.date !== today) { v.today = 0; v.date = today; v.ips = []; }
-    if (!v.ips) v.ips = [];
-    const ip = req.headers['x-forwarded-for'] || req.socket.remoteAddress;
-    const todayKey = `${ip}_${today}`;
-    if (!v.ips.includes(todayKey)) {
-      v.ips = v.ips.filter(i => i.includes(today));
-      v.ips.push(todayKey);
-      v.total++;
-      v.today++;
-      fs.writeFileSync(VISITORS_PATH, JSON.stringify(v));
-    }
-    res.json({ total: v.total, today: v.today });
-  } catch {
-    res.json({ total: 0, today: 0 });
-  }
-});
+;
 
 // STATS (Dashboard)
 app.get('/api/stats', auth, (req, res) => {
