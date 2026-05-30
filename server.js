@@ -9,7 +9,11 @@ const session = require('express-session');
 const multer = require('multer');
 
 const app = express();
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 8080;
+app.listen(PORT, '0.0.0.0', () => {
+  console.log(`✅ AutoLux Server: http://localhost:${PORT}`);
+});
+;
 const SECRET = 'autolux_secret_2025';
 const DB_PATH = path.join(__dirname, 'data/cars.json');
 const ADMIN_PATH = path.join(__dirname, 'data/admin.json');
