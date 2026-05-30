@@ -13,6 +13,7 @@ const SECRET = 'autolux_secret_2025';
 const DATA_DIR = path.join(__dirname, 'data');
 const DB_PATH = path.join(DATA_DIR, 'cars.json');
 const ADMIN_PATH = path.join(DATA_DIR, 'admin.json');
+const VISITORS_PATH = path.join(DATA_DIR, 'visitors.json');
 
 app.use(cors());
 app.use(express.json());
@@ -40,6 +41,15 @@ if (!fs.existsSync(ADMIN_PATH)) {
   }));
 }
 
+if (!fs.existsSync(VISITORS_PATH)) {
+  fs.writeFileSync(VISITORS_PATH, JSON.stringify({
+    total: 0,
+    today: 0,
+    date: new Date().toDateString(),
+    ips: []
+  }));
+}
+
 // Multer
 const storage = multer.diskStorage({
   destination: (req, file, cb) => cb(null, 'public/images/'),
@@ -49,6 +59,9 @@ const upload = multer({ storage });
 
 const readCars = () => JSON.parse(fs.readFileSync(DB_PATH, 'utf8'));
 const writeCars = (data) => fs.writeFileSync(DB_PATH, JSON.stringify(data, null, 2));
+
+const readVisitors = () => JSON.parse(fs.readFileSync(VISITORS_PATH, 'utf8'));
+const writeVisitors = (data) => fs.writeFileSync(VISITORS_PATH, JSON.stringify(data, null, 2));
 
 // Auth
 const auth = (req, res, next) => {
@@ -61,6 +74,28 @@ const auth = (req, res, next) => {
     res.status(401).json({ error: 'Token invalide' });
   }
 };
+
+// Track visitors
+app.use((req, res, next) => {
+  const ip = req.ip || req.connection.remoteAddress;
+  const visitors = readVisitors();
+  const today = new Date().toDateString();
+  
+  if (visitors.date !== today) {
+    visitors.today = 0;
+    visitors.date = today;
+    visitors.ips = [];
+  }
+  
+  if (!visitors.ips.includes(ip)) {
+    visitors.ips.push(ip);
+    visitors.today += 1;
+    visitors.total += 1;
+    writeVisitors(visitors);
+  }
+  
+  next();
+});
 
 // Routes
 app.post('/api/login', (req, res) => {
@@ -107,6 +142,19 @@ app.post('/api/change-password', auth, (req, res) => {
 
 app.post('/api/upload', auth, upload.single('image'), (req, res) => {
   res.json({ url: `/images/${req.file.filename}` });
+});
+
+// Get stats (visitors + cars count)
+app.get('/api/stats', auth, (req, res) => {
+  try {
+    const visitors = readVisitors();
+    res.json({
+      total: visitors.total || 0,
+      today: visitors.today || 0
+    });
+  } catch {
+    res.json({ total: 0, today: 0 });
+  }
 });
 
 app.listen(PORT, '0.0.0.0', () => {
