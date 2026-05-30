@@ -19,7 +19,7 @@ body{font-family:'Montserrat',sans-serif;background:var(--black);color:var(--whi
 .login-subtitle{text-align:center;color:var(--gray);font-size:.9rem;margin-bottom:2rem}
 .form-group{margin-bottom:1.5rem}
 .form-group label{display:block;font-size:.85rem;font-weight:600;margin-bottom:.5rem;color:var(--gray)}
-.form-group input,.form-group select,.form-group textarea{width:100%;background:#111;border:1px solid var(--border);color:var(--white);padding:.9rem 1rem;border-radius:10px;font-family:'Montserrat',sans-serif;font-size:.9rem;outline:none;transition:border .3s}
+.form-group input,.form-group select,.form-group textarea{width:100%;background:#111;border:1px solid var(--border);color:var(--white);padding:.9rem 1rem;border-radius:10px;font-family:'Montserrat',sans-serif}
 .form-group input:focus,.form-group select:focus,.form-group textarea:focus{border-color:var(--lime)}
 .form-group textarea{resize:vertical;min-height:80px}
 .btn-full{width:100%;background:var(--lime);color:var(--black);border:none;padding:1rem;border-radius:10px;font-family:'Montserrat',sans-serif;font-weight:700;font-size:1rem;cursor:pointer;transition:all .3s}
@@ -32,7 +32,7 @@ body{font-family:'Montserrat',sans-serif;background:var(--black);color:var(--whi
 .sidebar-logo{font-size:1.5rem;font-weight:900;padding:0 1.5rem 2rem;border-bottom:1px solid var(--border);margin-bottom:1rem}
 .sidebar-logo span{color:var(--lime)}
 .sidebar-logo small{display:block;font-size:.7rem;color:var(--gray);font-weight:400;margin-top:.2rem}
-.nav-item{display:flex;align-items:center;gap:.8rem;padding:.9rem 1.5rem;color:var(--gray);text-decoration:none;font-size:.9rem;font-weight:600;transition:all .3s;cursor:pointer;border:none;background:none;width:100%;text-align:left}
+.nav-item{display:flex;align-items:center;gap:.8rem;padding:.9rem 1.5rem;color:var(--gray);text-decoration:none;font-size:.9rem;font-weight:600;transition:all .3s;cursor:pointer;border:none;background:none}
 .nav-item:hover,.nav-item.active{color:var(--lime);background:rgba(163,230,53,0.05);border-right:3px solid var(--lime)}
 .nav-item i{width:20px}
 .main-content{margin-left:260px;padding:2rem;min-height:100vh}
@@ -74,11 +74,11 @@ body{font-family:'Montserrat',sans-serif;background:var(--black);color:var(--whi
 .badge-eco{background:rgba(163,230,53,0.15);color:var(--lime)}
 .badge-suv{background:rgba(99,102,241,0.15);color:#818cf8}
 .badge-luxe{background:rgba(212,168,67,0.15);color:var(--gold)}
-.btn-edit{background:rgba(59,130,246,0.1);color:var(--blue);border:1px solid rgba(59,130,246,0.3);padding:.4rem .8rem;border-radius:6px;cursor:pointer;font-size:.8rem;font-family:'Montserrat',sans-serif;font-weight:600;transition:all .3s;margin-right:.4rem}
+.btn-edit{background:rgba(59,130,246,0.1);color:var(--blue);border:1px solid rgba(59,130,246,0.3);padding:.4rem .8rem;border-radius:6px;cursor:pointer;font-size:.8rem;font-family:'Montserrat',sans-serif;font-weight:600;transition:all .3s}
 .btn-edit:hover{background:var(--blue);color:#fff}
 .btn-delete{background:rgba(239,68,68,0.1);color:var(--red);border:1px solid rgba(239,68,68,0.3);padding:.4rem .8rem;border-radius:6px;cursor:pointer;font-size:.8rem;font-family:'Montserrat',sans-serif;font-weight:600;transition:all .3s}
 .btn-delete:hover{background:var(--red);color:#fff}
-.toast{position:fixed;bottom:2rem;right:2rem;background:var(--lime);color:var(--black);padding:1rem 1.5rem;border-radius:10px;font-weight:700;font-size:.9rem;z-index:9999;transform:translateY(100px);transition:transform .3s;display:flex;align-items:center;gap:.5rem}
+.toast{position:fixed;bottom:2rem;right:2rem;background:var(--lime);color:var(--black);padding:1rem 1.5rem;border-radius:10px;font-weight:700;font-size:.9rem;z-index:9999;transform:translateY(100px);transition:transform .3s}
 .toast.show{transform:translateY(0)}
 .toast.error{background:var(--red);color:#fff}
 .page{display:none}.page.active{display:block}
@@ -95,7 +95,6 @@ body{font-family:'Montserrat',sans-serif;background:var(--black);color:var(--whi
 @media(max-width:480px){
   .stats-grid{grid-template-columns:1fr}
 }
-
 </style>
 </head>
 <body>
@@ -194,13 +193,13 @@ body{font-family:'Montserrat',sans-serif;background:var(--black);color:var(--whi
 <div class="form-group">
 <label>Image</label>
 <div style="display:flex;gap:.5rem;margin-bottom:.5rem">
-<button type="button" onclick="document.getElementById('fileInput').click()" style="background:var(--card);color:var(--lime);border:1px solid var(--lime);padding:.5rem 1rem;border-radius:8px;cursor:pointer;font-size:.8rem;font-family:Montserrat,sans-serif">
+<button type="button" onclick="document.getElementById('fileInput').click()" style="background:var(--card);color:var(--lime);border:1px solid var(--lime);padding:.5rem 1rem;border-radius:8px;cursor:pointer;font-family:'Montserrat',sans-serif;font-weight:600">
 <i class="fas fa-upload"></i> Depuis PC
 </button>
 <span style="color:var(--gray);font-size:.8rem;align-self:center">ou</span>
 </div>
 <input type="file" id="fileInput" accept="image/*" style="display:none" onchange="uploadFile()">
-<input type="text" id="carImage" placeholder="https://... ou uploader ci-dessus" oninput="previewImage()"
+<input type="text" id="carImage" placeholder="https://... ou uploader ci-dessus" oninput="previewImage()">
 <img id="imgPreview" class="preview-img" alt="Preview">
 </div>
 <div class="form-group"><label>Numéro WhatsApp</label><input type="text" id="carWhatsapp" placeholder="212600000000"></div>
@@ -253,40 +252,14 @@ cars = await res.json();
 updateStats();
 renderTable();
 renderRecent();
-}function updateStats() {
-  document.getElementById('totalCars').textContent = cars.length;
-  document.getElementById('luxeCars').textContent = cars.filter(c=>c.category==='luxe').length;
-  document.getElementById('suvCars').textContent = cars.filter(c=>c.category==='suv').length;
-  document.getElementById('ecoCars').textContent = cars.filter(c=>c.category==='economique').length;
-  loadVisitors(); // ← هذا موجود
 }
 
-function loadVisitors() {
-  fetch(`${API}/stats`, {
-    headers: {'Authorization': `Bearer ${token}`}
-  })
-  .then(r => r.json())
-  .then(v => {
-    document.getElementById('totalVisitors').textContent = v.total || 0;
-    document.getElementById('todayVisitors').textContent = v.today || 0;
-  })
-  .catch(() => {
-    document.getElementById('totalVisitors').textContent = '0';
-    document.getElementById('todayVisitors').textContent = '0';
-  });
+function updateStats() {
+document.getElementById('totalCars').textContent = cars.length;
+document.getElementById('luxeCars').textContent = cars.filter(c=>c.category==='luxe').length;
+document.getElementById('suvCars').textContent = cars.filter(c=>c.category==='suv').length;
+document.getElementById('ecoCars').textContent = cars.filter(c=>c.category==='economique').length;
 }
-
-setInterval(loadVisitors, 30000);
-
-// Visitors
-fetch(`${API}/visitors`)
-.then(r=>r.json())
-.then(v=>{
-document.getElementById('totalVisitors').textContent = v.total;
-document.getElementById('todayVisitors').textContent = v.today;
-});
-}
-
 
 function renderTable() {
 const tbody = document.getElementById('carsTableBody');
@@ -360,16 +333,23 @@ if (!file) return;
 const formData = new FormData();
 formData.append('image', file);
 showToast('⏳ Upload en cours...');
+try {
 const res = await fetch(`${API}/upload`, {
 method: 'POST',
 headers: {'Authorization': `Bearer ${token}`},
 body: formData
 });
 const data = await res.json();
-const API = 'https://car-rental11-production.up.railway.app/api';
+if (data.url) {
+document.getElementById('carImage').value = data.url;
 previewImage();
 showToast('✅ Image uploadée!');
 }
+} catch(e) {
+showToast('Erreur upload', true);
+}
+}
+
 function previewImage() {
 const img = document.getElementById('imgPreview');
 const url = document.getElementById('carImage').value;
@@ -408,8 +388,13 @@ async function changePassword() {
 const np = document.getElementById('newPass').value;
 const cp = document.getElementById('confirmPass').value;
 if (np !== cp) { showToast('Les mots de passe ne correspondent pas!', true); return; }
+if (np.length < 6) { showToast('Le mot de passe doit contenir au moins 6 caractères!', true); return; }
+try {
 await fetch(`${API}/change-password`, { method: 'POST', headers: {'Content-Type':'application/json','Authorization':`Bearer ${token}`}, body: JSON.stringify({newPassword:np}) });
+document.getElementById('newPass').value = '';
+document.getElementById('confirmPass').value = '';
 showToast('✅ Mot de passe changé!');
+} catch { showToast('Erreur serveur', true); }
 }
 
 function showToast(msg, error=false) {
